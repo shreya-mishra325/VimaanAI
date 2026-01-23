@@ -2,6 +2,7 @@ import Hero from "../sections/Hero.jsx";
 import Insights from "../sections/Insights.jsx";
 import Trends from "../sections/Trends.jsx";
 import CTA from "../sections/CTA.jsx";
+import Footer from "../sections/Footer.jsx";
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
       <Insights />
       <Trends />
       <CTA/>
-      {/* Trends, CTA, Footer will come here later */}
+      <Footer/>
     </div>
   );
 };
