@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+	scrollbar-width: thin !important;
+	scrollbar-color: oklch(var(--s)) oklch(var(--p)) !important;
+}
+
+::-webkit-scrollbar-track {
+	background: oklch(var(--p));
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: oklch(var(--s));
+}
+
+.plane {
+  offset-path: path("M20 150 C 140 40, 260 40, 380 150");
+  offset-rotate: auto;
+  animation: fly 6s linear infinite;
+}
+
+@keyframes fly {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}

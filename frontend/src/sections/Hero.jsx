@@ -56,10 +56,9 @@ const Hero = () => {
     <p className="text-2xl font-semibold text-green-600">India-focused</p>
     <p className="text-sm text-gray-500">Domestic route coverage</p>
   </div>
-</div>
-
-      </div>
-    </section>
+  </div>
+  </div>
+  </section>
   );
 };
 
