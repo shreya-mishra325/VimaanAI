@@ -14,7 +14,7 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center justify-center bg-gradient-to-b from-sky-50 to-white"
     >
-      <div className="max-w-3xl px-6 text-center">
+      <div className="max-w-3xl px-6 text-center" data-aos="fade-up">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
           Know Your Flight’s Delay Risk
           <br />

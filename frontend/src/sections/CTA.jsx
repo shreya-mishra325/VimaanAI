@@ -5,7 +5,7 @@ const CTA = () => {
 
   return (
     <section className="py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div data-aos="fade-up" className="max-w-4xl mx-auto px-6 text-center">
         
         <h2 className="text-3xl font-bold text-gray-900">
           Help Improve VimaanAI ✈️

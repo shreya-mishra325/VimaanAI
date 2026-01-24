@@ -52,9 +52,8 @@ const Trends = () => {
 
   return (
     <section id="trends" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+      <div data-aos="fade-up" className="max-w-7xl mx-auto px-6">
 
-        {/* HISTORICAL TRENDS (UNCHANGED) */}
         <h2 className="text-3xl font-bold text-gray-900">
           Historical Flight Trends
         </h2>
@@ -65,7 +64,7 @@ const Trends = () => {
         </p>
 
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 bg-white rounded-lg border">
+          <div data-aos="fade-up" className="p-6 bg-white rounded-lg border">
             <h3 className="font-semibold text-gray-800">Time of Day</h3>
             <p className="mt-2 text-sm text-gray-600">
               Early morning departures generally experience fewer delays
@@ -73,7 +72,7 @@ const Trends = () => {
             </p>
           </div>
 
-          <div className="p-6 bg-white rounded-lg border">
+          <div data-aos="fade-up" className="p-6 bg-white rounded-lg border">
             <h3 className="font-semibold text-gray-800">Seasonal Impact</h3>
             <p className="mt-2 text-sm text-gray-600">
               Monsoon conditions historically increase delay probability,
@@ -81,7 +80,7 @@ const Trends = () => {
             </p>
           </div>
 
-          <div className="p-6 bg-white rounded-lg border">
+          <div data-aos="fade-up" className="p-6 bg-white rounded-lg border">
             <h3 className="font-semibold text-gray-800">Route Congestion</h3>
             <p className="mt-2 text-sm text-gray-600">
               High-traffic metro routes tend to accumulate delays as the day
@@ -89,7 +88,7 @@ const Trends = () => {
             </p>
           </div>
         </div>
-
+        <div data-aos="fade-up">
         <h3 className="mt-20 text-2xl font-bold text-gray-900">
           Current Weather Impact
         </h3>
@@ -98,10 +97,11 @@ const Trends = () => {
           Live weather conditions across major Indian airports and their
           potential impact on flight delays.
         </p>
+        </div>
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {weatherData.map((item) => (
-            <div
+            <div data-aos="fade-up"
               key={item.code}
               className="p-6 bg-white rounded-lg border flex flex-col gap-2"
             >
@@ -117,42 +117,39 @@ const Trends = () => {
               </p>
 
               <span
-  className={`inline-flex items-center gap-2 w-fit px-3 py-1 text-xs rounded-full font-medium ${
-    item.risk === "High"
-      ? "bg-red-100 text-red-700"
-      : item.risk === "Moderate"
-      ? "bg-yellow-100 text-yellow-700"
-      : "bg-green-100 text-green-700"
-  }`}
->
-  <span className="relative flex h-2 w-2">
-    <span
-      className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-        item.risk === "High"
-          ? "bg-red-400"
-          : item.risk === "Moderate"
-          ? "bg-yellow-400"
-          : "bg-green-400"
-      }`}
-    ></span>
-    <span
-      className={`relative inline-flex rounded-full h-2 w-2 ${
-        item.risk === "High"
-          ? "bg-red-500"
-          : item.risk === "Moderate"
-          ? "bg-yellow-500"
-          : "bg-green-500"
-      }`}
-    ></span>
-  </span>
-
-  {item.risk} delay risk
-</span>
-
-            </div>
+          className={`inline-flex items-center gap-2 w-fit px-3 py-1 text-xs rounded-full font-medium ${
+            item.risk === "High"
+              ? "bg-red-100 text-red-700"
+              : item.risk === "Moderate"
+              ? "bg-yellow-100 text-yellow-700"
+              : "bg-green-100 text-green-700"
+          }`}
+          >
+          <span className="relative flex h-2 w-2">
+            <span
+              className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                item.risk === "High"
+                  ? "bg-red-400"
+                  : item.risk === "Moderate"
+                  ? "bg-yellow-400"
+                  : "bg-green-400"
+              }`}
+            ></span>
+            <span
+              className={`relative inline-flex rounded-full h-2 w-2 ${
+                item.risk === "High"
+                  ? "bg-red-500"
+                  : item.risk === "Moderate"
+                  ? "bg-yellow-500"
+                  : "bg-green-500"
+              }`}
+            ></span>
+          </span>
+          {item.risk} delay risk
+          </span>
+          </div>
           ))}
         </div>
-
       </div>
     </section>
   );

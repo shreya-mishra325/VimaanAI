@@ -19,8 +19,8 @@ const PlaneAnimation = () => {
         <g>
           <g transform="rotate(90)">
             <svg
-              width="32"
-              height="32"
+              width="37"
+              height="37"
               viewBox="0 0 24 24"
               fill="#2563eb"
             >
