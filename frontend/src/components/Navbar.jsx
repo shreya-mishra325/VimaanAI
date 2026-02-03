@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -34,7 +35,9 @@ const Navbar = () => {
           className="text-lg font-bold cursor-pointer"
           onClick={() => handleNav("/")}
         >
-          VimaanAI ✈️
+          <Logo
+          size="text-2xl"
+          iconSize="w-6 h-6"/>
         </div>
 
         <div className="hidden md:flex space-x-3">

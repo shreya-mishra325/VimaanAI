@@ -1,15 +1,18 @@
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import Logo from "../components/Logo";
 
 const Footer = () => {
   return (
     <footer id="contact" className="bg-black text-gray-300">
       <div className="max-w-4xl mx-auto px-6 py-10 flex flex-col items-center text-center gap-6">
-
         <h3 className="text-2xl font-semibold text-white">
-          VimaanAI ✈️
-        </h3>
-
+        <Logo
+          size="text-2xl"
+          iconSize="w-6 h-6"
+          color="text-white"
+        />
+      </h3>
         <p className="text-8sm text-gray-400 max-w-md">
           An aviation intelligence platform focused on understanding and
           predicting flight delay patterns in India.
