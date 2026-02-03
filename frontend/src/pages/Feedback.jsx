@@ -1,12 +1,126 @@
-function Feedback() {
-    return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
-            <h1 className="text-4xl font-bold mb-6 text-gray-900">Your Feedback Is Valuable</h1>
-            <p className="text-lg text-gray-700 mb-8 max-w-xl text-center">
-                Have questions, suggestions, or need assistance? Reach out here and help improve your experience!
-            </p>
-            </div>
-    )
+import React from 'react';
+// import axios from 'axios';
+import { useState } from 'react';
+import Footer from '../sections/Footer.jsx';
+
+const Feedback = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError('');
+  };
+
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+  
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setSuccess(false);
+  setError('');
+
+  const { name, email, message } = formData;
+
+  if (!name || !email || !message) {
+    setError('All fields are mandatory!');
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    setError('Please enter a valid email address (e.g. abcd@xyz.com).');
+    return;
+  }
+  setLoading(true);
+
+  try {
+    const response = await axios.post(
+    `${import.meta.env.VITE_API_URL}/api/contact`,
+    formData,
+    {
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
+
+    if (response.status === 201) {
+      setFormData({ name: '', email: '', message: '' });
+      setSuccess(true);
+    } else {
+      setError('Something went wrong. Please try again.');
+    }
+  } catch (error) {
+    setError(
+        error.response?.data?.message ||
+        'Unable to send message. Please try again later.'
+      );
+    } finally {
+    setLoading(false);
+  }
+};
+
+
+  return (
+    <>
+    <div className="mt-9 min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4 py-10">
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-lg w-full animate-fade-in">
+        <h2 className="text-3xl font-extrabold mb-4 text-gray-900 text-center">We Value Your Feedback.</h2>
+        {success && (
+        <div className="mb-4 rounded-lg bg-green-100 text-green-800 px-4 py-3 text-center">
+          Your message has been sent successfully!
+        </div>
+        )}
+        {error && (
+        <div className="mb-4 rounded-lg bg-red-100 text-red-800 px-4 py-3 text-center">
+          {error}
+        </div>
+        )}
+        <p className="mb-6 text-gray-600 text-center">
+          Have a question, suggestion or issue? Fill out the form below and we’ll get back to you!
+        </p>
+        <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none text-gray-800"
+            required
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none text-gray-800"
+            required
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <textarea
+          name="message"
+            placeholder="Your Message"
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none text-gray-800"
+            rows={4}
+            required
+            value={formData.message}
+            onChange={handleChange}
+          />
+          <button disabled={loading}
+            type="button"
+            onClick={handleSubmit}
+            className="w-full bg-black text-white px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-all duration-300 shadow-md cursor-pointer ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-black text-white hover:bg-gray-800'}"
+          >
+            {loading ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
+    </div>
+    <Footer />
+    </>
+  );
 }
 
 export default Feedback;

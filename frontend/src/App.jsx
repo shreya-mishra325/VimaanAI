@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import Predict from "./pages/Predict.jsx";
 import Feedback from "./pages/Feedback.jsx";
+import ScrollToTop from "./components/scrollToTop.jsx";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop /> 
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
