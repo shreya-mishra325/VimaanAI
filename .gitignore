@@ -158,5 +158,9 @@ Thumbs.db
 backend/data/raw/US_flight_delays.csv
 backend/data/processed/flight_delay_clean.csv
 
-backend/data/raw/US_flight_delays.csv backend/data/processed/flight_delay_clean.csv
+backend/data/raw/US_flight_delays.csv backend/data/processed/flight_delay_clean.csv 
+
+backend/data/processed/flight_delay_features.csv
+backend/data/processed/flight_delay_encoded.csv
+backend/data/processed/flight_delay_features.csv backend/data/processed/flight_delay_encoded.csv
 backend/ml/venv/
