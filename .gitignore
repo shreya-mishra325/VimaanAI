@@ -137,3 +137,26 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Python
+backend/ml/venv/
+backend/ml/venv/**
+
+# Python cache
+__pycache__/
+*.pyc
+
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ignore datasets
+backend/data/raw/US_flight_delays.csv
+backend/data/processed/flight_delay_clean.csv
+
+backend/data/raw/US_flight_delays.csv backend/data/processed/flight_delay_clean.csv
+backend/ml/venv/
